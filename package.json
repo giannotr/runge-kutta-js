@@ -1,31 +1,31 @@
 {
-  "name": "runge-kutta",
-  "version": "0.0.1",
-  "description": "JavaScript implementation of the classic Runge-Kutta method (RK4)",
-  "main": "lib/index.js",
+	"name": "runge-kutta",
+	"version": "0.0.1",
+	"description": "JavaScript implementation of the classic Runge-Kutta method (RK4)",
+	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/giannotr/runge-kutta-js.git"
-  },
-  "keywords": [
-    "math",
-    "mathematics",
-    "numerical",
-    "numeric",
-    "method",
-    "solve",
-    "differential",
-    "equation",
-    "system",
-    "equations",
-    "calculus"
-  ],
-  "author": "Ruben Giannotti",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/giannotr/runge-kutta-js/issues"
-  },
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/giannotr/runge-kutta-js.git"
+	},
+	"keywords": [
+		"math",
+		"mathematics",
+		"numerical",
+		"numeric",
+		"method",
+		"solve",
+		"differential",
+		"equation",
+		"system",
+		"equations",
+		"calculus"
+	],
+	"author": "Ruben Giannotti",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/giannotr/runge-kutta-js/issues"
+	},
 	"homepage": "https://github.com/giannotr/runge-kutta-js#readme",
 	"scripts": {
 		"build": "tsc",
@@ -33,13 +33,20 @@
 		"test": "jest --coverage",
 		"test-dev": "xo && npm run test && npm run prepare"
 	},
-  "devDependencies": {
-    "jest": "^25.4.0",
-    "ts-jest": "^25.4.0",
-    "typescript": "^3.8.3",
-    "xo": "^0.30.0"
+	"devDependencies": {
+		"jest": "^25.4.0",
+		"ts-jest": "^25.4.0",
+		"typescript": "^3.8.3",
+		"xo": "^0.30.0"
 	},
 	"xo": {
+		"rules": {
+			"no-floating-decimal": "off",
+			"one-var": "warn",
+			"@typescript-eslint/space-before-function-paren": "off",
+			"@typescript-eslint/keyword-spacing": "off",
+			"@typescript-eslint/restrict-plus-operands": "warn"
+		},
 		"ignores": [
 			"./src/**/*.test.js"
 		]
@@ -60,5 +67,8 @@
 		"transform": {
 			"^.+\\.(ts|tsx)$": "ts-jest"
 		}
+	},
+	"dependencies": {
+		"type-insurance": "^1.2.0"
 	}
 }
