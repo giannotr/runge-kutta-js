@@ -1,0 +1,64 @@
+{
+  "name": "runge-kutta",
+  "version": "0.0.1",
+  "description": "JavaScript implementation of the classic Runge-Kutta method (RK4)",
+  "main": "lib/index.js",
+	"types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giannotr/runge-kutta-js.git"
+  },
+  "keywords": [
+    "math",
+    "mathematics",
+    "numerical",
+    "numeric",
+    "method",
+    "solve",
+    "differential",
+    "equation",
+    "system",
+    "equations",
+    "calculus"
+  ],
+  "author": "Ruben Giannotti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giannotr/runge-kutta-js/issues"
+  },
+	"homepage": "https://github.com/giannotr/runge-kutta-js#readme",
+	"scripts": {
+		"build": "tsc",
+		"prepare": "tsc",
+		"test": "jest --coverage",
+		"test-dev": "xo && npm run test && npm run prepare"
+	},
+  "devDependencies": {
+    "jest": "^25.4.0",
+    "ts-jest": "^25.4.0",
+    "typescript": "^3.8.3",
+    "xo": "^0.30.0"
+	},
+	"xo": {
+		"ignores": [
+			"./src/**/*.test.js"
+		]
+	},
+	"jest": {
+		"testPathIgnorePatterns": [
+			"/node_modules/",
+			"/coverage/",
+			"/lib/"
+		],
+		"roots": [
+			"<rootDir>/src"
+		],
+		"testMatch": [
+			"**/__tests__/**/*.+(ts|tsx|js)",
+			"**/?(*.)+(spec|test).+(ts|tsx|js)"
+		],
+		"transform": {
+			"^.+\\.(ts|tsx)$": "ts-jest"
+		}
+	}
+}

@@ -1,0 +1,6 @@
+# Exclude coverage reports, source and config files
+# for TypeScript and Travis CI
+/coverage/
+/src/
+tsconfig.json
+.travis.yml

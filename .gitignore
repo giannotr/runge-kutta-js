@@ -1,0 +1,4 @@
+# Exclude dependencies, coverage reports and transpiled files
+/node_modules/
+/coverage/
+/lib/
