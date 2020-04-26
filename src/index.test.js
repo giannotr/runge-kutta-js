@@ -43,9 +43,9 @@ const _roundResults = input => {
 
 test('Runge-Kutta approximation for single variable problem', () => {
 	const dy = (t, y) => y;
-	const approximation1 = rungeKutta(dy, 1, 0, 5, .2)
+	const approximation1 = rungeKutta(dy, 1, [0, 5], .2)
 		.filter((x, i) => i % 5 === 0);
-	const approximation2 = rungeKutta(dy, [1], 0, 5, .2)
+	const approximation2 = rungeKutta(dy, [1], [0, 5], .2)
 		.filter((x, i) => i % 5 === 0);
 	const exact = [0, 1, 2, 3, 4, 5].map(x => Math.exp(x));
 
@@ -57,7 +57,7 @@ test('Runge-Kutta approximation for a multi variable problem', () => {
 	const T = .2143, R = 1/14;
 	const dSIR = (t, y) => [-T * y[0] * y[1], (T * y[0] - R) * y[1], R * y[1]];
 
-	expect(rungeKutta(dSIR, [1, .1, 0], 0, 2, .2).map(x => x[1]))
+	expect(rungeKutta(dSIR, [1, .1, 0], [0, 2], .2).map(x => x[1]))
 		.toEqual([
 			.1,
 			.10288911725369337,
@@ -74,17 +74,11 @@ test('Runge-Kutta approximation for a multi variable problem', () => {
 });
 
 test('rungeKutta errors', () => {
-	expect(() => rungeKutta((t, y) => t * y, 1, 2, 1, 1))
+	expect(() => rungeKutta((t, y) => t * y, 1, [2, 1], 1))
 		.toThrow(UndependentVariableError);
-	expect(() => rungeKutta((t, y) => t * y, 1, 0, 1, .4))
-		.toThrow(StepSizeDivisibilityError);
 
 	expect(() => rungeKutta(
 		(t, y) => [y[0] * y[1] + t, y[0] + y[1] - t],
-		[1, 1], 2, 1, 1
-	)).toThrow(UndependentVariableError);
-	expect(() => rungeKutta(
-		(t, y) => [y[0] * y[1] + t, y[0] + y[1] - t],
-		1, 0, 2, .8
+		[1, 1], [0, 2], .8
 	)).toThrow(StepSizeDivisibilityError);
 });

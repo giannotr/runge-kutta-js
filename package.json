@@ -13,7 +13,7 @@
 		"mathematics",
 		"numerical",
 		"numeric",
-		"method",
+		"methods",
 		"solve",
 		"differential",
 		"equation",
@@ -43,10 +43,12 @@
 	"xo": {
 		"rules": {
 			"no-floating-decimal": "off",
+			"comma-dangle": "off",
 			"one-var": "warn",
 			"@typescript-eslint/space-before-function-paren": "off",
 			"@typescript-eslint/keyword-spacing": "off",
-			"@typescript-eslint/restrict-plus-operands": "warn"
+			"@typescript-eslint/restrict-plus-operands": "warn",
+			"@typescript-eslint/prefer-readonly-parameter-types": "warn"
 		},
 		"ignores": [
 			"./src/**/*.test.js"
